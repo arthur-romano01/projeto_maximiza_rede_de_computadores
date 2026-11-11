@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +6,6 @@
 #include <windows.h>
 
 #pragma comment(lib, "Ws2_32.lib")
-
 #define MAX_BUFFER_SIZE (1024 * 1024)
 
 // Calcula o tempo decorrido em segundos.
@@ -166,7 +164,6 @@ int main(int argc, char *argv[]) {
 
         int sent_total = 0;
 
-        // Garantir envio do bloco completo.
         while (sent_total < block_size) {
 
             int sent = send(
@@ -193,11 +190,10 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-
-    // Encerrar apenas o envio.
     shutdown(client_socket, SD_SEND);
 
-    // Liberar recursos.
+
+    //Liberar recursos.
     free(buffer);
     closesocket(client_socket);
     WSACleanup();
