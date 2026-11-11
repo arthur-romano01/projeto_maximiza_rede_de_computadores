@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +6,6 @@
 #include <windows.h>
 
 #pragma comment(lib, "Ws2_32.lib")
-
 #define MAX_CLIENTS 10
 #define BUFFER_SIZE 65536
 
@@ -19,7 +17,6 @@ typedef struct {
     int error;
 } ClientInfo;
 
-// Calcula o tempo decorrido em segundos.
 double elapsed_time(LARGE_INTEGER start,
                     LARGE_INTEGER end,
                     LARGE_INTEGER frequency) {
@@ -81,8 +78,6 @@ DWORD WINAPI receive_data(LPVOID arg) {
 }
 
 int main(int argc, char *argv[]) {
-
-    // Verificar argumentos.
     if (argc != 3) {
 
         printf("Uso: %s <porta> <numero_clientes>\n", argv[0]);
@@ -249,8 +244,6 @@ int main(int argc, char *argv[]) {
     QueryPerformanceFrequency(&frequency);
 
     printf("\nIniciando transmissao...\n");
-
-    // Iniciar cronometro antes de liberar os clientes.
     QueryPerformanceCounter(&start);
 
     // Liberar todos os clientes.
