@@ -150,7 +150,7 @@ O tempo é medido desde o envio do sinal de início até o término de todas as 
 
 ---
 
-## Resultados dos Testes - Arthur (1 a 5 Clientes)
+## Resultados dos Testes (1 a 10 Clientes)
 
 Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1`), com duração configurada de **10 segundos** e blocos de **65.536 bytes (64 KiB)** por cliente.
 
@@ -163,6 +163,11 @@ Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1
 | **3** | 10.0024 s | 52.320.665.600 | 41.846,54 Mbps | ~41,85 Gbps |
 | **4** | 10.0031 s | 71.237.763.072 | 56.972,30 Mbps | ~56,97 Gbps |
 | **5** | 10.0067 s | 81.604.706.304 | 65.240,13 Mbps | ~65,24 Gbps |
+| **6** | 10.0094 s | 48.338.829.312 | 38.634,90 Mbps | ~38,63 Gbps |
+| **7** | 10.0166 s | 80.332.587.008 | 64.159,66 Mbps | ~64,16 Gbps |
+| **8** | 10.0162 s | 48.026.091.520 | 38.358,86 Mbps | ~38,36 Gbps |
+| **9** | 10.0140 s | 46.911.848.448 | 37.477,16 Mbps | ~37,48 Gbps |
+| **10** | 10.0171 s | 90.278.723.584 | 72.099,59 Mbps | ~72,10 Gbps |
 
 ---
 
@@ -178,8 +183,8 @@ Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1
 <details>
 <summary>Visualizar Captura de Tela (1 Cliente)</summary>
 
-![Servidor - 1 Cliente](prints/Servidor_1_cliente.png)
-![Cliente - 1 Cliente](prints/teste_1_cliente.png)
+![Servidor - 1 Cliente](prints/Testes%20parte%201/Servidor_1_cliente.png)
+![Cliente - 1 Cliente](prints/Testes%20parte%201/teste_1_cliente.png)
 </details>
 
 ---
@@ -195,8 +200,8 @@ Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1
 <details>
 <summary>Visualizar Captura de Tela (2 Clientes)</summary>
 
-![Servidor - 2 Clientes](prints/Servidor_2_clientes.png)
-![Cliente - 2 Clientes](prints/teste_2_clientes.png)
+![Servidor - 2 Clientes](prints/Testes%20parte%201/Servidor_2_clientes.png)
+![Cliente - 2 Clientes](prints/Testes%20parte%201/teste_2_clientes.png)
 </details>
 
 ---
@@ -213,8 +218,8 @@ Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1
 <details>
 <summary>Visualizar Captura de Tela (3 Clientes)</summary>
 
-![Servidor - 3 Clientes](prints/Servidor_3_cliente.png)
-![Cliente - 3 Clientes](prints/teste_3_cliente.png)
+![Servidor - 3 Clientes](prints/Testes%20parte%201/Servidor_3_cliente.png)
+![Cliente - 3 Clientes](prints/Testes%20parte%201/teste_3_cliente.png)
 </details>
 
 ---
@@ -232,8 +237,8 @@ Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1
 <details>
 <summary>Visualizar Captura de Tela (4 Clientes)</summary>
 
-![Servidor - 4 Clientes](prints/Servidor_4_clientes.png)
-![Cliente - 4 Clientes](prints/teste_4_clientes.png)
+![Servidor - 4 Clientes](prints/Testes%20parte%201/Servidor_4_clientes.png)
+![Cliente - 4 Clientes](prints/Testes%20parte%201/teste_4_clientes.png)
 </details>
 
 ---
@@ -252,17 +257,141 @@ Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1
 <details>
 <summary>Visualizar Captura de Tela (5 Clientes)</summary>
 
-![Servidor - 5 Clientes](prints/Servidor_5_clientes.png)
-![Cliente - 5 Clientes](prints/teste_5_clientes.png)
+![Servidor - 5 Clientes](prints/Testes%20parte%201/Servidor_5_clientes.png)
+![Cliente - 5 Clientes](prints/Testes%20parte%201/teste_5_clientes.png)
 </details>
 
 ---
 
-### Análise dos Resultados
+#### 6 Clientes
+* **Dados por cliente:**
+  * Cliente 1: 8.018.329.600 bytes
+  * Cliente 2: 8.251.310.080 bytes
+  * Cliente 3: 7.796.162.560 bytes
+  * Cliente 4: 7.987.003.392 bytes
+  * Cliente 5: 8.385.265.664 bytes
+  * Cliente 6: 7.900.758.016 bytes
+* **Total recebido:** 48.338.829.312 bytes (~48,34 GB)
+* **Tempo:** 10.0094 s
+* **Throughput:** **38.634,90 Mbps** (~38,63 Gbps)
 
-1. **Escalabilidade com Múltiplas Threads:** O throughput cresceu significativamente conforme o número de clientes aumentou (de **~20,65 Gbps** com 1 cliente até atingir a marca de **~65,24 Gbps** com 5 clientes simultâneos).
-2. **Paralelismo em Loopback:** Como os testes foram realizados localmente via loopback, a comunicação em paralelo permitiu aproveitar múltiplos núcleos da CPU através do modelo multithread do servidor, maximizando a transferência de memória e pilha TCP do sistema operacional.
-3. **Equilíbrio de Carga:** Com múltiplos clientes (em especial nos testes com 3, 4 e 5 clientes), os volumes de bytes transferidos individualmente foram muito próximos entre si, demonstrando justa alocação de tempo e recursos pelo escalonador do SO e pela pilha de rede.
+<details>
+<summary>Visualizar Captura de Tela (6 Clientes)</summary>
+
+![Servidor - 6 Clientes](prints/Testes%20parte%201/Servidor_6_clientes.png)
+![Cliente - 6 Clientes](prints/Testes%20parte%201/teste_6_cliente.png)
+</details>
+
+---
+
+#### 7 Clientes
+* **Dados por cliente:**
+  * Cliente 1: 11.157.438.464 bytes
+  * Cliente 2: 11.036.262.400 bytes
+  * Cliente 3: 11.092.230.144 bytes
+  * Cliente 4: 10.934.353.920 bytes
+  * Cliente 5: 11.039.670.272 bytes
+  * Cliente 6: 11.038.097.408 bytes
+  * Cliente 7: 14.034.534.400 bytes
+* **Total recebido:** 80.332.587.008 bytes (~80,33 GB)
+* **Tempo:** 10.0166 s
+* **Throughput:** **64.159,66 Mbps** (~64,16 Gbps)
+
+<details>
+<summary>Visualizar Captura de Tela (7 Clientes)</summary>
+
+![Servidor - 7 Clientes](prints/Testes%20parte%201/Servidor_7_clientes.png)
+![Cliente - 7 Clientes](prints/Testes%20parte%201/teste_7_clientes.png)
+</details>
+
+---
+
+#### 8 Clientes
+* **Dados por cliente:**
+  * Cliente 1: 5.691.277.312 bytes
+  * Cliente 2: 5.884.149.760 bytes
+  * Cliente 3: 5.630.590.976 bytes
+  * Cliente 4: 5.779.095.552 bytes
+  * Cliente 5: 5.705.891.840 bytes
+  * Cliente 6: 6.301.614.080 bytes
+  * Cliente 7: 6.705.577.984 bytes
+  * Cliente 8: 6.327.894.016 bytes
+* **Total recebido:** 48.026.091.520 bytes (~48,03 GB)
+* **Tempo:** 10.0162 s
+* **Throughput:** **38.358,86 Mbps** (~38,36 Gbps)
+
+<details>
+<summary>Visualizar Captura de Tela (8 Clientes)</summary>
+
+![Servidor - 8 Clientes](prints/Testes%20parte%201/Servidor_8_clientes.png)
+![Cliente - 8 Clientes](prints/Testes%20parte%201/teste_8_clientes.png)
+</details>
+
+---
+
+#### 9 Clientes
+* **Dados por cliente:**
+  * Cliente 1: 5.095.948.288 bytes
+  * Cliente 2: 5.257.101.312 bytes
+  * Cliente 3: 4.696.506.368 bytes
+  * Cliente 4: 4.807.917.568 bytes
+  * Cliente 5: 4.959.633.408 bytes
+  * Cliente 6: 4.959.502.336 bytes
+  * Cliente 7: 5.635.375.104 bytes
+  * Cliente 8: 5.696.061.440 bytes
+  * Cliente 9: 5.803.802.624 bytes
+* **Total recebido:** 46.911.848.448 bytes (~46,91 GB)
+* **Tempo:** 10.0140 s
+* **Throughput:** **37.477,16 Mbps** (~37,48 Gbps)
+
+<details>
+<summary>Visualizar Captura de Tela (9 Clientes)</summary>
+
+![Servidor - 9 Clientes](prints/Testes%20parte%201/Servidor_9_clientes.png)
+![Cliente - 9 Clientes](prints/Testes%20parte%201/teste_9_clientes.png)
+</details>
+
+---
+
+#### 10 Clientes
+* **Dados por cliente:**
+  * Cliente 1: 7.885.946.880 bytes
+  * Cliente 2: 8.056.078.336 bytes
+  * Cliente 3: 7.692.943.360 bytes
+  * Cliente 4: 8.288.534.528 bytes
+  * Cliente 5: 8.039.432.192 bytes
+  * Cliente 6: 7.999.455.232 bytes
+  * Cliente 7: 10.776.084.480 bytes
+  * Cliente 8: 11.142.627.328 bytes
+  * Cliente 9: 10.102.112.256 bytes
+  * Cliente 10: 10.295.508.992 bytes
+* **Total recebido:** 90.278.723.584 bytes (~90,28 GB)
+* **Tempo:** 10.0171 s
+* **Throughput:** **72.099,59 Mbps** (~72,10 Gbps)
+
+<details>
+<summary>Visualizar Captura de Tela (10 Clientes)</summary>
+
+![Servidor - 10 Clientes](prints/Testes%20parte%201/Servidor_10_clientes.png)
+![Cliente - 10 Clientes](prints/Testes%20parte%201/teste_10_clientes.png)
+</details>
+
+---
+
+### Análise e Discussão dos Resultados
+
+1. **Escalabilidade e Paralelismo Multithread:**
+   - Com **1 cliente**, o throughput medido foi de **~20,65 Gbps**.
+   - Conforme mais conexões concorrentes foram adicionadas, o paralelismo das threads do servidor e os múltiplos núcleos de processamento foram amplamente aproveitados, elevando a taxa para **~42,30 Gbps** com 2 clientes, **~56,97 Gbps** com 4 clientes e **~65,24 Gbps** com 5 clientes, culminando no pico máximo de **~72,10 Gbps** com 10 clientes.
+
+2. **Comportamento em Loopback (127.0.0.1):**
+   - No loopback, a comunicação não é limitada por uma placa física de rede (ex: 1 Gbps ou 10 Gbps), mas sim pela largura de banda da memória RAM, eficiência de cópia de buffers no kernel do Windows (Winsock) e capacidade de processamento da CPU. Por essa razão, taxas acima de dezenas de gigabits por segundo são observadas.
+
+3. **Variações e Sobrecarga de Troca de Contexto (6, 8 e 9 Clientes):**
+   - Nos testes com 6, 8 e 9 clientes, observou-se uma acomodação do throughput agregado na faixa de **~37 a 38 Gbps**. Esse fenômeno é comum em sistemas operacionais quando o número de threads concorrentes de alta taxa de I/O atinge o limite de núcleos físicos da máquina, gerando disputa de cache L2/L3 e custos de troca de contexto (*context switching*).
+
+4. **Pico Máximo de Transferência (10 Clientes):**
+   - No teste com 10 clientes, foi registrado o maior throughput agregado de todo o experimento: **72.099,59 Mbps (~72,10 Gbps)**, transferindo mais de **90,27 GB** em apenas 10 segundos, com distribuição consistente de dados entre todas as conexões ativas.
 
 ---
 
@@ -462,11 +591,11 @@ O script `rodar_testes.sh` compila os programas, executa automaticamente os test
 
 ```text
 .
-├── cliente.c       # Cliente TCP para transmissão contínua de dados
-├── servidor.c      # Servidor TCP multithread de medição de throughput
-├── Makefile        # Script de compilação automatizada
-├── rodar_testes.sh # Bateria de testes automatizada (1 a 10 clientes)
-├── prints/         # Capturas de tela dos testes realizados
-├── README.md       # Documentação do projeto e resultados dos testes
+├── cliente.c                   # Cliente TCP para transmissão contínua de dados
+├── servidor.c                  # Servidor TCP multithread de medição de throughput
+├── Makefile                    # Script de compilação automatizada
+├── prints/
+│   └── Testes parte 1/         # Capturas de tela dos testes (1 a 10 clientes)
+├── README.md                   # Documentação do projeto e resultados dos testes
 └── .gitignore
 ```
