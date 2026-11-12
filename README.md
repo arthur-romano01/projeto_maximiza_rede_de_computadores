@@ -150,7 +150,7 @@ O tempo é medido desde o envio do sinal de início até o término de todas as 
 
 ---
 
-## Resultados dos Testes (1 a 10 Clientes)
+## Resultados dos Testes (1 a 10 Clientes) - Arthur
 
 Os testes foram realizados em ambiente local (interface de *loopback* `127.0.0.1`), com duração configurada de **10 segundos** e blocos de **65.536 bytes (64 KiB)** por cliente.
 
